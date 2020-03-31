@@ -3,6 +3,7 @@ export class HungryBear {
   constructor(name) {
     this.name = name;
     this.foodLevel = 10;
+    this.sleepLevel = 15;
   }
 
   setHunger() {
@@ -26,5 +27,11 @@ export class HungryBear {
     } else {
       return false;
     }
+  }
+
+  setSleep() {
+    setInterval(() => {
+      this.sleepLevel--;
+    }, 5000);
   }
 }
