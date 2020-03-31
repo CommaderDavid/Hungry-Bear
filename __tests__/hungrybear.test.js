@@ -39,4 +39,10 @@ describe('Fuzzy', () => {
     fuzzy.feed();
     expect(fuzzy.foodLevel).toEqual(10);
   });
+
+  test('should not be able to do anything if "eaten"', function() {
+    fuzzy.foodLevel = 0
+    fuzzy.feed();
+    expect(fuzzy.feed()).toEqual(false);
+  });
 });

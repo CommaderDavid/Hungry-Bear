@@ -12,14 +12,19 @@ export class HungryBear {
   }
 
   didYouGetEaten() {
-   if (this.foodLevel > 0) {
-     return false;
-   } else {
-     return true;
-   }
- }
+    if (this.foodLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
  feed() {
-   this.foodLevel = 10;
- }
+    if (this.foodLevel > 0) {
+      this.foodLevel = 10;
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
