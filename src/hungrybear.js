@@ -20,6 +20,14 @@ export class HungryBear {
     }
   }
 
+  didYouGetMauled() {
+    if (this.sleepLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
  feed() {
     if (this.foodLevel > 0) {
       this.foodLevel = 10;
@@ -43,4 +51,5 @@ export class HungryBear {
       return false;
     }
   }
+
 }

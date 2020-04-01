@@ -36,10 +36,20 @@ describe('Fuzzy', () => {
     expect(fuzzy.didYouGetEaten()).toEqual(true);
   });
 
+  test('should get very mad if the sleep level drops below zero', function() {
+    fuzzy.sleepLevel = 0;
+    expect(fuzzy.didYouGetMauled()).toEqual(true);
+  });
+
   test('should get very hungry if 10 seconds pass without feeding', function() {
     jest.advanceTimersByTime(10001);
     expect(fuzzy.didYouGetEaten()).toEqual(true);
   });
+
+  test('should get very mad if no lullaby is played in 30 seconds', function() {
+    jest.advanceTimersByTime(30001);
+    expect(fuzzy.didYouGetMauled()).toEqual(true);
+  })
 
   test('should have a food level of ten if it is fed', function() {
     jest.advanceTimersByTime(9001);
@@ -55,7 +65,10 @@ describe('Fuzzy', () => {
 
   test('should not be able to do anything if "eaten"', function() {
     fuzzy.foodLevel = 0
+    fuzzy.sleepLevel = 0
     fuzzy.feed();
+    fuzzy.lullaby();
     expect(fuzzy.feed()).toEqual(false);
+    expect(fuzzy.lullaby()).toEqual(false);
   });
 });
