@@ -1,14 +1,21 @@
 export class Levels {
-  constructor(day, night) {
-    this.day = day;
-    this.night = night;
+
+  constructor() {
+    this.dayTime = 20;
+    this.nightTime = 15;
   }
 
-  switchLevels() {
-    if (this.day === true) {
-      return this.day;
-    } else if (this.night === true) {
-      return this.night;
-    }
+  setDayTime() {
+    setInterval(() => {
+      this.dayTime--;
+    }, 4000);
   }
+
+  setNightTime() {
+    setInterval(() => {
+      this.nightTime--;
+    }, 2000);
+  }
+
+
 }
