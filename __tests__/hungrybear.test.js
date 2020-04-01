@@ -1,5 +1,6 @@
 // use "debugger" to look for bugs and broken code.
 import { HungryBear } from './../src/hungrybear.js';
+import { Levels } from './../src/levels.js';
 
 describe('Fuzzy', () => {
   jest.useFakeTimers();
@@ -49,7 +50,7 @@ describe('Fuzzy', () => {
   test('should get very mad if no lullaby is played in 30 seconds', function() {
     jest.advanceTimersByTime(30001);
     expect(fuzzy.didYouGetMauled()).toEqual(true);
-  })
+  });
 
   test('should have a food level of ten if it is fed', function() {
     jest.advanceTimersByTime(9001);
@@ -61,7 +62,7 @@ describe('Fuzzy', () => {
     jest.advanceTimersByTime(24001);
     fuzzy.lullaby();
     expect(fuzzy.sleepLevel).toEqual(15);
-  })
+  });
 
   test('should not be able to do anything if "eaten"', function() {
     fuzzy.foodLevel = 0
@@ -71,4 +72,24 @@ describe('Fuzzy', () => {
     expect(fuzzy.feed()).toEqual(false);
     expect(fuzzy.lullaby()).toEqual(false);
   });
+});
+
+describe('Levels', () => {
+  jest.useFakeTimers();
+  let days;
+
+  beforeEach(function() {
+    days = new Levels();
+    days.setDayTime();
+    days.setNightTime();
+  });
+
+  afterEach(function() {
+    jest.clearAllTimers();
+  });
+
+  test('should have day level set to 20 and night level set to 15', () => {
+    expect(days.dayTime).toEqual(20);
+    expect(days.nightTime).toEqual(15);
+  })
 });
