@@ -47,6 +47,12 @@ describe('Fuzzy', () => {
     expect(fuzzy.foodLevel).toEqual(10);
   });
 
+  test('should have sleep level of 15 if it is sang a lullaby', function() {
+    jest.advanceTimersByTime(24001);
+    fuzzy.lullaby();
+    expect(fuzzy.sleepLevel).toEqual(15);
+  })
+
   test('should not be able to do anything if "eaten"', function() {
     fuzzy.foodLevel = 0
     fuzzy.feed();

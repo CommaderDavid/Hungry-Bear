@@ -34,4 +34,13 @@ export class HungryBear {
       this.sleepLevel--;
     }, 2000);
   }
+
+  lullaby() {
+    if (this.sleepLevel > 0) {
+      this.sleepLevel = 15;
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
