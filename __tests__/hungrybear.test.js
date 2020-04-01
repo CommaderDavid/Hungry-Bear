@@ -8,20 +8,27 @@ describe('Fuzzy', () => {
   beforeEach(function() {
     fuzzy = new HungryBear("Fuzzy");
     fuzzy.setHunger();
+    fuzzy.setSleep();
   });
 
   afterEach(function() {
     jest.clearAllTimers();
   });
 
-  test('should have a name and a food level of 10 when it is created', () => {
+  test('should have a name, a food level of 10, and a sleep level of 15 when it is created', () => {
     expect(fuzzy.name).toEqual("Fuzzy");
     expect(fuzzy.foodLevel).toEqual(10);
+    expect(fuzzy.sleepLevel).toEqual(15);
   });
 
   test('should have a food level of 7 after 3001 milliseconds', () => {
     jest.advanceTimersByTime(3001);
     expect(fuzzy.foodLevel).toEqual(7);
+  });
+
+  test('should have a sleep level of 10 after 10001 milliseconds', () => {
+    jest.advanceTimersByTime(10001);
+    expect(fuzzy.sleepLevel).toEqual(10);
   });
 
   test('should get very hungry if the food level drops below zero', function() {

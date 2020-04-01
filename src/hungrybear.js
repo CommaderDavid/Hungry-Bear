@@ -32,6 +32,6 @@ export class HungryBear {
   setSleep() {
     setInterval(() => {
       this.sleepLevel--;
-    }, 5000);
+    }, 2000);
   }
 }
