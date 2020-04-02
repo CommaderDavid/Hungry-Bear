@@ -97,5 +97,9 @@ describe('Levels', () => {
     jest.advanceTimersByTime(8001);
     expect(days.dayTime).toEqual(18);
   });
-  
+
+  test('should switch from day to night when day is out of time', () => {
+    days.dayTime = 0;
+    expect(days.switchToNight()).toEqual(true);
+  });
 });
