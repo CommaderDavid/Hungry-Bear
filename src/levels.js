@@ -2,7 +2,7 @@ export class Levels {
 
   constructor() {
     this.dayTime = 20;
-    this.nightTime = 15;
+    this.nightTime = 20;
   }
 
   setDayTime() {

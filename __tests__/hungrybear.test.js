@@ -88,8 +88,14 @@ describe('Levels', () => {
     jest.clearAllTimers();
   });
 
-  test('should have day level set to 20 and night level set to 15', () => {
+  test('should have day level set to 20 and night level set to 20', () => {
     expect(days.dayTime).toEqual(20);
-    expect(days.nightTime).toEqual(15);
-  })
+    expect(days.nightTime).toEqual(20);
+  });
+
+  test('should day level should decay by 1 every 4000 milliseconds', () => {
+    jest.advanceTimersByTime(8001);
+    expect(days.dayTime).toEqual(18);
+  });
+  
 });
