@@ -102,4 +102,9 @@ describe('Levels', () => {
     days.dayTime = 0;
     expect(days.switchToNight()).toEqual(true);
   });
+
+  test('should switch from night to day when night equals 0', () => {
+    days.nightTime = 0;
+    expect(days.switchToDay()).toEqual(true);
+  });
 });

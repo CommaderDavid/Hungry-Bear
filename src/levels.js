@@ -28,10 +28,10 @@ export class Levels {
 
   switchToDay() {
     if (this.nightTime === 0) {
-      this.dayTime = true;
       this.dayTime = 20;
+      return this.dayTime = true;
     } else {
-      this.dayTime = false;
+      return this.dayTime = false;
     }
   }
 }
