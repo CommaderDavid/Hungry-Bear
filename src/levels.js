@@ -8,6 +8,7 @@ export class Levels {
   setDayTime() {
     setInterval(() => {
       this.dayTime--;
+      console.log(this.dayTime, "Day Time");
     }, 4000);
   }
 
