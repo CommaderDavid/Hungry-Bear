@@ -80,8 +80,6 @@ describe('Levels', () => {
 
   beforeEach(function() {
     days = new Levels();
-    days.setDayTime();
-    days.setNightTime();
   });
 
   afterEach(function() {
@@ -91,20 +89,5 @@ describe('Levels', () => {
   test('should have day level set to 20 and night level set to 20', () => {
     expect(days.dayTime).toEqual(20);
     expect(days.nightTime).toEqual(20);
-  });
-
-  test('should day level should decay by 1 every 4000 milliseconds', () => {
-    jest.advanceTimersByTime(8001);
-    expect(days.dayTime).toEqual(18);
-  });
-
-  test('should switch from day to night when day is out of time', () => {
-    days.dayTime = 0;
-    expect(days.switchToNight()).toEqual(true);
-  });
-
-  test('should switch from night to day when night equals 0', () => {
-    days.nightTime = 0;
-    expect(days.switchToDay()).toEqual(true);
   });
 });
