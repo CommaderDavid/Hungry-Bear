@@ -11,16 +11,23 @@ $(document).ready(function() {
   let fuzzy = new HungryBear("Fuzzy");
 
   let dayInterval = () => {
+    //creates the dayInterval variable
     let day = setInterval(() => {
+      //creates the day variable that contains the setInterval
       if (time.dayTime > 0) {
         time.dayTime--;
+        //decreases time by one
         $("#timeOfDay").empty().append(time.dayTime);
       } else if (time.dayTime === 0) {
         clearInterval(day);
+        //allows the clearing of the interval
         nightInterval();
+        //calls the second variable
         time.nightTime = 20;
+        //resets the time
       }
     }, 4000);
+    //do this every 4 seconds
   };
 
   let nightInterval = () => {
